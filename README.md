@@ -15,7 +15,7 @@ cd tensorRt-deploy-global-with-streamlit
 ```
 Install the required dependencies:
 ``` bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 Set your ngrok token : 
 ``` bash
