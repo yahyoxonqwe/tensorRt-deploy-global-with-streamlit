@@ -1,15 +1,12 @@
 import streamlit as st
 import cv2
 import numpy as np
-from pyngrok import ngrok
 import tempfile
 from PIL import Image
 from numpy import ndarray
 import time
 from typing import List, Optional, Tuple, Union
 from tensorrt_cuda import TRTEngine
-
-ngrok.set_auth_token("2TxUrE2wuWsHeuiJi9nhZ5EV7Xm_57HPbhgwBA4ufgKtPwZGE")
 
 def letterbox(im: ndarray,
               new_shape: Union[Tuple, List] = (640, 640),
