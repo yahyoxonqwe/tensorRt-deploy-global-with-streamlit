@@ -97,7 +97,6 @@ def det_postprocess(data: Tuple[ndarray, ndarray, ndarray, ndarray]):
     return bboxes, scores, labels    
     
 def engine_run(engine, image):
-    engine = TRTEngine(engine)   
     H, W = engine.inp_info[0].shape[-2:]
     
     # image = cv2.imread(image_path)
@@ -128,9 +127,11 @@ def engine_run(engine, image):
     return image
 
 
-
+ 
 
 def main():
+    engine_path = 'best.engine'
+    engine = TRTEngine(engine_path)  
 # Create a video file uploader
     st.header("Upload a video")
     uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "avi", "mov"])
@@ -151,7 +152,7 @@ def main():
 
             start = time.time()
             
-            output = engine_run(image = frame, engine = 'best.engine')
+            output = engine_run(image = frame, engine = engine)
             
             end = time.time()
             # Convert the output to an image that can be displayed
